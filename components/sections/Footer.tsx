@@ -37,7 +37,16 @@ export default function Footer() {
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center text-center">
     <div className="space-y-4">
       <div className="flex items-center justify-center space-x-2 transform hover:scale-105 transition-transform duration-300">
-        <Brain className="h-8 w-8 text-purple-400" />
+        <div className="relative">
+          <img
+        src="/logo.png"
+        alt="DevTechAi Logo"
+        className="h-14 w-14 object-contain relative z-10"
+        style={{ filter: "drop-shadow(0 0 12px white)" }}
+          />
+          {/* Optional: extra white glow behind logo */}
+          <div className="absolute inset-0 rounded-full bg-white opacity-30 blur-lg z-0"></div>
+        </div>
         <span className="text-xl font-bold">DevTechAi.Org</span>
       </div>
       <p className="text-gray-400 leading-relaxed max-w-xs">

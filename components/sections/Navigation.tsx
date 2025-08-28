@@ -29,7 +29,7 @@ export default function Navigation({ activeSection, onScrollToSection }: Navigat
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-300">
-            <Brain className="h-8 w-8 text-purple-600" />
+              <img src="/logo.png" alt="DevTechAi Logo" className="h-12 w-12 object-contain" />
             <span className="text-xl font-bold text-gray-900">DevTechAi.Org</span>
           </div>
           
