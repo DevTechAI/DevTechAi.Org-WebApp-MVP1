@@ -13,7 +13,6 @@ const navigationItems = [
   { id: 'services', label: 'Services' },
   { id: 'features', label: 'Features' },
   { id: 'about', label: 'About' },
-  { id: 'testimonials', label: 'Testimonials' },
   { id: 'contact', label: 'Contact' },
 ];
 

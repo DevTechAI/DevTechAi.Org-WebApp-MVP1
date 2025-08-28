@@ -76,7 +76,7 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
                 className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 transform hover:scale-105 hover:shadow-lg transition-all duration-300"
                 onClick={() => onScrollToSection('contact')}
               >
-                Get Started
+                Business Enquiry
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button 
@@ -91,8 +91,8 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
 
             <div className="flex items-center space-x-8 pt-4">
               <div className="text-center transform hover:scale-110 transition-transform duration-300">
-                <div className="text-2xl font-bold text-gray-900">500+</div>
-                <div className="text-sm text-gray-600">Projects Completed</div>
+                <div className="text-2xl font-bold text-gray-900">20+</div>
+                <div className="text-sm text-gray-600">20+ GenAI & AgenticAI Projects</div>
               </div>
               <div className="text-center transform hover:scale-110 transition-transform duration-300">
                 <div className="text-2xl font-bold text-gray-900">98%</div>
