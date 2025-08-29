@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from 'react';
-import { Brain, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';   // ✅ Import Image
 
 interface NavigationProps {
   activeSection: string;
@@ -13,7 +14,6 @@ const navigationItems = [
   { id: 'services', label: 'Services' },
   { id: 'features', label: 'Features' },
   { id: 'about', label: 'About' },
-  { id: 'testimonials', label: 'Testimonials' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -29,8 +29,15 @@ export default function Navigation({ activeSection, onScrollToSection }: Navigat
     <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-purple-100 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          {/* ✅ Logo Replacement */}
           <div className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-300">
-            <Brain className="h-8 w-8 text-purple-600" />
+            <Image 
+              src="/devtechai-logo.png" 
+              alt="DevTechAi Logo" 
+              width={40} 
+              height={40} 
+              className="h-8 w-8"
+            />
             <span className="text-xl font-bold text-gray-900">DevTechAi.Org</span>
           </div>
           

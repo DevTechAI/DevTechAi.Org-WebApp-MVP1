@@ -11,13 +11,13 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    details: ["hello@devtechai.org", "support@devtechai.org"],
+    details: ["pre-sales@devtechai.org"],
     color: "purple"
   },
   {
     icon: Phone,
     title: "Call Us",
-    details: ["+91 7794841440", "Mon-Fri 9AM-6PM EST"],
+    details: ["+91 7794841440", "Mon-Fri 9AM-6PM IST"],
     color: "blue"
   },
 ];
@@ -133,19 +133,6 @@ export default function ContactSection() {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-purple-100 transform hover:scale-105 hover:shadow-lg transition-all duration-500">
-              <h4 className="font-semibold text-gray-900 mb-3">Schedule a Free Consultation</h4>
-              <p className="text-gray-600 mb-4">
-                Book a 30-minute call with our AI experts to discuss your specific needs and explore potential solutions.
-              </p>
-              <Button 
-                variant="outline" 
-                className="border-purple-200 text-purple-700 hover:bg-purple-50 transform hover:scale-105 transition-all duration-300"
-              >
-                Book Now
-              </Button>
             </div>
           </div>
         </div>

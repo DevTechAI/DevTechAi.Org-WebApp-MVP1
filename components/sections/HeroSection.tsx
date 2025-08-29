@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Brain, Sparkles, ArrowRight, BarChart3, Zap, Shield } from 'lucide-react';
+import { Sparkles, ArrowRight, BarChart3, Zap, Shield } from 'lucide-react';
+import Image from "next/image";   // ✅ Added for logo
 
 interface HeroSectionProps {
   onScrollToSection: (sectionId: string) => void;
@@ -76,7 +77,7 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
                 className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 transform hover:scale-105 hover:shadow-lg transition-all duration-300"
                 onClick={() => onScrollToSection('contact')}
               >
-                Get Started
+                Business Enquiry
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button 
@@ -91,8 +92,8 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
 
             <div className="flex items-center space-x-8 pt-4">
               <div className="text-center transform hover:scale-110 transition-transform duration-300">
-                <div className="text-2xl font-bold text-gray-900">500+</div>
-                <div className="text-sm text-gray-600">Projects Completed</div>
+                <div className="text-2xl font-bold text-gray-900">20+</div>
+                <div className="text-sm text-gray-600">GenAI & AgenticAI Projects Completed</div>
               </div>
               <div className="text-center transform hover:scale-110 transition-transform duration-300">
                 <div className="text-2xl font-bold text-gray-900">98%</div>
@@ -105,6 +106,7 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
             </div>
           </div>
 
+          {/* ✅ Mock card with logo instead of Brain */}
           <div className="relative">
             <div 
               className="bg-gradient-to-br from-purple-400 to-blue-500 rounded-3xl p-8 transform rotate-3 shadow-2xl hover:rotate-6 transition-transform duration-500 hover:shadow-3xl"
@@ -115,7 +117,13 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
               <div className="bg-white rounded-2xl p-6 transform -rotate-3 hover:-rotate-6 transition-transform duration-500">
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <Brain className="h-8 w-8 text-purple-600" />
+                    <Image 
+                      src="/devtechai-logo.png" 
+                      alt="DevTechAi Logo" 
+                      width={32} 
+                      height={32} 
+                      className="h-8 w-8"
+                    />
                     <div className="h-4 bg-gray-200 rounded w-32 animate-pulse"></div>
                   </div>
                   <div className="space-y-3">
@@ -138,6 +146,7 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
               </div>
             </div>
           </div>
+          {/* ✅ End of mock card */}
         </div>
       </div>
     </section>

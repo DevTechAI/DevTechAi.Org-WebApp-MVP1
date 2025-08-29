@@ -1,6 +1,6 @@
 "use client";
 
-import { Brain } from 'lucide-react';
+import Image from "next/image";  // ✅ Import Image
 
 const footerSections = [
   {
@@ -33,39 +33,45 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-      <div className="flex justify-center">
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center text-center">
-    <div className="space-y-4">
-      <div className="flex items-center justify-center space-x-2 transform hover:scale-105 transition-transform duration-300">
-        <Brain className="h-8 w-8 text-purple-400" />
-        <span className="text-xl font-bold">DevTechAi.Org</span>
-      </div>
-      <p className="text-gray-400 leading-relaxed max-w-xs">
-        Transforming businesses through intelligent AI solutions. 
-        Your partner in the journey to digital excellence.
-      </p>
-    </div>
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center text-center">
+            {/* ✅ Logo Replacement */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-center space-x-2 transform hover:scale-105 transition-transform duration-300">
+                <Image 
+                  src="/devtechai-logo.png" 
+                  alt="DevTechAi Logo" 
+                  width={40} 
+                  height={40} 
+                  className="h-8 w-8"
+                />
+                <span className="text-xl font-bold">DevTechAi.Org</span>
+              </div>
+              <p className="text-gray-400 leading-relaxed max-w-xs">
+                Transforming businesses through intelligent AI solutions. 
+                Your partner in the journey to digital excellence.
+              </p>
+            </div>
 
-    {footerSections.map((section, index) => (
-      <div key={index} className="space-y-4">
-        <h4 className="font-semibold text-lg">{section.title}</h4>
-        <ul className="space-y-2 text-gray-400">
-          {section.links.map((link, linkIndex) => (
-            <li key={linkIndex}>
-              <a 
-                href={link.href} 
-                className="hover:text-purple-400 transition-all duration-300 transform hover:scale-105 inline-block"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))}
-  </div>
-</div>
-
+            {footerSections.map((section, index) => (
+              <div key={index} className="space-y-4">
+                <h4 className="font-semibold text-lg">{section.title}</h4>
+                <ul className="space-y-2 text-gray-400">
+                  {section.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <a 
+                        href={link.href} 
+                        className="hover:text-purple-400 transition-all duration-300 transform hover:scale-105 inline-block"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; 2025 DevTechAi.Org. All rights reserved. Privacy Policy | Terms of Service</p>
