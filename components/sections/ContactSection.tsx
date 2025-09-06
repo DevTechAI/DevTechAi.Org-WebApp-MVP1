@@ -1,11 +1,12 @@
 "use client";
 
+import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowRight, Mail, Phone, MapPin, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 const contactInfo = [
   {
@@ -22,6 +23,49 @@ const contactInfo = [
   },
 ];
 
+const teamMembers = [
+  {
+    id: 1,
+    name: "Dr. Sarah Chen",
+    role: "Chief AI Officer",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    profileUrl: "https://linkedin.com/in/sarah-chen-ai",
+    description: "Leading AI research and innovation"
+  },
+  {
+    id: 2,
+    name: "Michael Rodriguez",
+    role: "Head of Engineering",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    profileUrl: "https://linkedin.com/in/michael-rodriguez-eng",
+    description: "Building scalable AI solutions"
+  },
+  {
+    id: 3,
+    name: "Priya Sharma",
+    role: "Data Science Lead",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    profileUrl: "https://linkedin.com/in/priya-sharma-data",
+    description: "Transforming data into insights"
+  },
+  {
+    id: 4,
+    name: "David Kim",
+    role: "Product Manager",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    profileUrl: "https://linkedin.com/in/david-kim-product",
+    description: "Driving product strategy and growth"
+  },
+  {
+    id: 5,
+    name: "Lisa Thompson",
+    role: "UX Design Director",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    profileUrl: "https://linkedin.com/in/lisa-thompson-ux",
+    description: "Creating intuitive AI experiences"
+  }
+];
+
 const colorClasses = {
   purple: 'from-purple-100 to-purple-200 text-purple-600',
   blue: 'from-blue-100 to-blue-200 text-blue-600',
@@ -29,6 +73,21 @@ const colorClasses = {
 };
 
 export default function ContactSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % teamMembers.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
   return (
     <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 to-blue-50 relative overflow-hidden">
       {/* 3D Background Elements */}
@@ -148,6 +207,113 @@ export default function ContactSection() {
                   className="w-full h-64"
                 ></iframe>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Team Carousel Section */}
+        <div className="mt-20">
+          <div className="text-center space-y-4 mb-12">
+            <Badge className="bg-emerald-100 text-emerald-700 hover:bg-emerald-200 transform hover:scale-105 transition-all duration-300">
+              Meet Our Team
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+              The Minds Behind DevTechAi
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our diverse team of AI experts, engineers, and innovators working together 
+              to transform industries through cutting-edge artificial intelligence.
+            </p>
+          </div>
+
+          {/* Carousel Container */}
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl flex items-center justify-center text-gray-600 hover:text-emerald-600 transition-all duration-300 transform hover:scale-110"
+              aria-label="Previous team member"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl flex items-center justify-center text-gray-600 hover:text-emerald-600 transition-all duration-300 transform hover:scale-110"
+              aria-label="Next team member"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+
+            {/* Carousel Track */}
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {teamMembers.map((member) => (
+                  <div key={member.id} className="w-full flex-shrink-0 px-4">
+                    <div className="flex justify-center">
+                      <div className="text-center space-y-4 group">
+                        {/* Profile Image */}
+                        <div className="relative mx-auto">
+                          <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl group-hover:scale-105 transition-all duration-500">
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          {/* Hover overlay */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <ExternalLink className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+
+                        {/* Member Info */}
+                        <div className="space-y-2">
+                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
+                            {member.name}
+                          </h3>
+                          <p className="text-lg font-semibold text-emerald-600">
+                            {member.role}
+                          </p>
+                          <p className="text-sm text-gray-600 max-w-xs mx-auto">
+                            {member.description}
+                          </p>
+                          
+                          {/* Profile Link */}
+                          <a
+                            href={member.profileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center space-x-1 text-emerald-600 hover:text-emerald-700 font-medium transition-colors duration-300"
+                          >
+                            <span>View Profile</span>
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center space-x-2 mt-8">
+              {teamMembers.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? 'bg-emerald-600 scale-125'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
