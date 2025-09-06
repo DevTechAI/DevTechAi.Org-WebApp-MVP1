@@ -63,6 +63,14 @@ const teamMembers = [
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
     profileUrl: "https://linkedin.com/in/lisa-thompson-ux",
     description: "Creating intuitive AI experiences"
+  },
+  {
+    id: 6,
+    name: "Sixth Thompson",
+    role: "UX Design Director",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    profileUrl: "https://linkedin.com/in/lisa-thompson-ux",
+    description: "Creating intuitive AI experiences"
   }
 ];
 
@@ -218,7 +226,7 @@ export default function ContactSection() {
               Meet Our Team
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-              The Minds Behind DevTechAi
+              The Minds Behind DevTechAi.Org
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our diverse team of AI experts, engineers, and innovators working together 
