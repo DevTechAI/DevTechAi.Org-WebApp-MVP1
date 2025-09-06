@@ -73,7 +73,7 @@ const colorClasses = {
 };
 
 export default function ContactSection() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(2); // Start with middle profile (index 2)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const nextSlide = () => {
@@ -246,57 +246,79 @@ export default function ContactSection() {
             </button>
 
             {/* Carousel Track */}
-            <div className="overflow-hidden">
+            <div className="overflow-hidden px-16">
               <div 
                 className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                style={{ transform: `translateX(-${(currentSlide - 1) * 33.333}%)` }}
               >
-                {teamMembers.map((member) => (
-                  <div key={member.id} className="w-full flex-shrink-0 px-4">
-                    <div className="flex justify-center">
-                      <div className="text-center space-y-4 group">
-                        {/* Profile Image */}
-                        <div className="relative mx-auto">
-                          <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl group-hover:scale-105 transition-all duration-500">
-                            <img
-                              src={member.image}
-                              alt={member.name}
-                              className="w-full h-full object-cover"
-                            />
+                {teamMembers.map((member, index) => {
+                  const isActive = index === currentSlide;
+                  const isLeft = index === (currentSlide - 1 + teamMembers.length) % teamMembers.length;
+                  const isRight = index === (currentSlide + 1) % teamMembers.length;
+                  
+                  return (
+                    <div key={member.id} className="w-1/3 flex-shrink-0 px-4">
+                      <div className={`flex justify-center transition-all duration-500 ${
+                        isActive 
+                          ? 'scale-100 opacity-100' 
+                          : isLeft || isRight 
+                            ? 'scale-75 opacity-60' 
+                            : 'scale-50 opacity-30'
+                      }`}>
+                        <div className="text-center space-y-4 group cursor-pointer" onClick={() => goToSlide(index)}>
+                          {/* Profile Image */}
+                          <div className="relative mx-auto">
+                            <div className={`mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl group-hover:scale-105 transition-all duration-500 ${
+                              isActive ? 'w-32 h-32' : 'w-24 h-24'
+                            }`}>
+                              <img
+                                src={member.image}
+                                alt={member.name}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            {/* Hover overlay */}
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                              <ExternalLink className="h-6 w-6 text-white" />
+                            </div>
                           </div>
-                          {/* Hover overlay */}
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <ExternalLink className="h-6 w-6 text-white" />
-                          </div>
-                        </div>
 
-                        {/* Member Info */}
-                        <div className="space-y-2">
-                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
-                            {member.name}
-                          </h3>
-                          <p className="text-lg font-semibold text-emerald-600">
-                            {member.role}
-                          </p>
-                          <p className="text-sm text-gray-600 max-w-xs mx-auto">
-                            {member.description}
-                          </p>
-                          
-                          {/* Profile Link */}
-                          <a
-                            href={member.profileUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center space-x-1 text-emerald-600 hover:text-emerald-700 font-medium transition-colors duration-300"
-                          >
-                            <span>View Profile</span>
-                            <ExternalLink className="h-4 w-4" />
-                          </a>
+                          {/* Member Info */}
+                          <div className="space-y-2">
+                            <h3 className={`font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 ${
+                              isActive ? 'text-xl' : 'text-lg'
+                            }`}>
+                              {member.name}
+                            </h3>
+                            <p className={`font-semibold text-emerald-600 ${
+                              isActive ? 'text-lg' : 'text-base'
+                            }`}>
+                              {member.role}
+                            </p>
+                            <p className={`text-gray-600 max-w-xs mx-auto ${
+                              isActive ? 'text-sm' : 'text-xs'
+                            }`}>
+                              {member.description}
+                            </p>
+                            
+                            {/* Profile Link - Only show for active slide */}
+                            {isActive && (
+                              <a
+                                href={member.profileUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center space-x-1 text-emerald-600 hover:text-emerald-700 font-medium transition-colors duration-300"
+                              >
+                                <span>View Profile</span>
+                                <ExternalLink className="h-4 w-4" />
+                              </a>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
