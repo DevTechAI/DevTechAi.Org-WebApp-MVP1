@@ -8,7 +8,7 @@ const features = [
   {
     icon: CheckCircle,
     title: "Proven Track Record",
-    description: "500+ successful AI implementations across various industries with measurable ROI."
+    description: "Successfully implementing AI software solutions across various industries with measurable ROI."
   },
   {
     icon: Zap,

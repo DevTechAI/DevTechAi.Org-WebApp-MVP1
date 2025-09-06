@@ -6,7 +6,6 @@ import HeroSection from '@/components/sections/HeroSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import AboutSection from '@/components/sections/AboutSection';
-import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/sections/Footer';
 
@@ -46,7 +45,6 @@ export default function Home() {
       <ServicesSection />
       <FeaturesSection />
       <AboutSection />
-      <TestimonialsSection />
       <ContactSection />
       <Footer />
     </div>
