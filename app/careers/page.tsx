@@ -19,7 +19,36 @@ const jobOpenings = [
     location: "Hyderabad, India",
     type: "Full-time",
     experience: "3-5 years",
-    description: "Lead development of cutting-edge AI solutions and machine learning models."
+    description: "Lead development of cutting-edge AI solutions and machine learning models.",
+    detailedDescription: {
+      overview: "We're looking for a Senior AI Engineer to lead our machine learning initiatives and drive innovation in artificial intelligence solutions. You'll work on complex AI projects, mentor junior developers, and contribute to our cutting-edge AI platform.",
+      responsibilities: [
+        "Design and implement machine learning models and algorithms",
+        "Lead AI project development from conception to deployment",
+        "Mentor junior AI engineers and conduct code reviews",
+        "Collaborate with cross-functional teams to integrate AI solutions",
+        "Research and implement state-of-the-art AI technologies",
+        "Optimize model performance and scalability",
+        "Document technical specifications and best practices"
+      ],
+      requirements: [
+        "Bachelor's or Master's degree in Computer Science, AI, or related field",
+        "3-5 years of experience in machine learning and AI development",
+        "Strong programming skills in Python, TensorFlow, PyTorch",
+        "Experience with cloud platforms (AWS, GCP, Azure)",
+        "Knowledge of MLOps and model deployment practices",
+        "Strong problem-solving and analytical skills",
+        "Excellent communication and leadership abilities"
+      ],
+      benefits: [
+        "Competitive salary and equity options",
+        "Health insurance and wellness programs",
+        "Professional development budget",
+        "Flexible work arrangements",
+        "State-of-the-art equipment and tools",
+        "Team building activities and events"
+      ]
+    }
   },
   {
     id: 2,
@@ -28,7 +57,36 @@ const jobOpenings = [
     location: "Hyderabad, India", 
     type: "Full-time",
     experience: "2-4 years",
-    description: "Analyze complex datasets and build predictive models for business insights."
+    description: "Analyze complex datasets and build predictive models for business insights.",
+    detailedDescription: {
+      overview: "Join our Data Science team to extract valuable insights from complex datasets and build predictive models that drive business decisions. You'll work with large-scale data, develop statistical models, and create data-driven solutions.",
+      responsibilities: [
+        "Analyze large datasets to identify trends and patterns",
+        "Develop predictive models and statistical analyses",
+        "Create data visualizations and reports for stakeholders",
+        "Collaborate with engineering teams to implement data solutions",
+        "Design and conduct A/B tests and experiments",
+        "Maintain and optimize data pipelines",
+        "Present findings to technical and non-technical audiences"
+      ],
+      requirements: [
+        "Bachelor's or Master's degree in Data Science, Statistics, or related field",
+        "2-4 years of experience in data analysis and modeling",
+        "Proficiency in Python, R, SQL, and data visualization tools",
+        "Experience with machine learning libraries (scikit-learn, pandas, numpy)",
+        "Knowledge of statistical analysis and experimental design",
+        "Strong analytical and problem-solving skills",
+        "Experience with cloud data platforms preferred"
+      ],
+      benefits: [
+        "Competitive salary and performance bonuses",
+        "Comprehensive health and dental coverage",
+        "Learning and development opportunities",
+        "Remote work flexibility",
+        "Modern data science tools and infrastructure",
+        "Collaborative and innovative work environment"
+      ]
+    }
   },
   {
     id: 3,
@@ -37,7 +95,37 @@ const jobOpenings = [
     location: "Hyderabad, India",
     type: "Full-time", 
     experience: "1-3 years",
-    description: "Create beautiful and responsive user interfaces for our AI applications."
+    description: "Create beautiful and responsive user interfaces for our AI applications.",
+    detailedDescription: {
+      overview: "We're seeking a Frontend Developer to create intuitive and engaging user interfaces for our AI-powered applications. You'll work with modern web technologies to build responsive, accessible, and performant user experiences.",
+      responsibilities: [
+        "Develop responsive web applications using React/Next.js",
+        "Implement modern UI/UX designs with attention to detail",
+        "Optimize applications for performance and accessibility",
+        "Collaborate with designers and backend developers",
+        "Write clean, maintainable, and well-documented code",
+        "Participate in code reviews and technical discussions",
+        "Stay updated with latest frontend technologies and best practices"
+      ],
+      requirements: [
+        "Bachelor's degree in Computer Science or related field",
+        "1-3 years of frontend development experience",
+        "Strong proficiency in React, JavaScript, TypeScript, HTML/CSS",
+        "Experience with modern CSS frameworks (Tailwind CSS)",
+        "Knowledge of responsive design principles",
+        "Familiarity with version control (Git) and build tools",
+        "Understanding of web performance optimization",
+        "Experience with testing frameworks preferred"
+      ],
+      benefits: [
+        "Competitive salary and growth opportunities",
+        "Health insurance and wellness programs",
+        "Professional development and training budget",
+        "Flexible working hours and remote options",
+        "Latest development tools and equipment",
+        "Creative and collaborative team environment"
+      ]
+    }
   },
   {
     id: 4,
@@ -46,7 +134,37 @@ const jobOpenings = [
     location: "Hyderabad, India",
     type: "Full-time",
     experience: "4-6 years", 
-    description: "Drive product strategy and roadmap for AI-powered solutions."
+    description: "Drive product strategy and roadmap for AI-powered solutions.",
+    detailedDescription: {
+      overview: "Lead the product strategy and development of our AI-powered solutions. You'll work closely with engineering, design, and business teams to define product requirements, prioritize features, and ensure successful product launches.",
+      responsibilities: [
+        "Define product strategy and roadmap for AI solutions",
+        "Gather and analyze user requirements and market research",
+        "Collaborate with engineering teams on technical specifications",
+        "Manage product backlog and prioritize features",
+        "Coordinate with design teams on user experience",
+        "Monitor product performance and user feedback",
+        "Present product updates to stakeholders and executives"
+      ],
+      requirements: [
+        "Bachelor's degree in Business, Engineering, or related field",
+        "4-6 years of product management experience",
+        "Experience with AI/ML products preferred",
+        "Strong analytical and problem-solving skills",
+        "Excellent communication and presentation abilities",
+        "Experience with agile development methodologies",
+        "Knowledge of user research and data analysis",
+        "Technical background preferred"
+      ],
+      benefits: [
+        "Competitive salary and equity participation",
+        "Comprehensive health and wellness benefits",
+        "Professional development and conference attendance",
+        "Flexible work arrangements",
+        "Leadership development opportunities",
+        "Innovative and fast-paced work environment"
+      ]
+    }
   },
   {
     id: 5,
@@ -55,7 +173,37 @@ const jobOpenings = [
     location: "Hyderabad, India",
     type: "Internship",
     experience: "0-1 years",
-    description: "Gain hands-on experience in HR technology, automation, and people analytics using AI tools."
+    description: "Gain hands-on experience in HR technology, automation, and people analytics using AI tools.",
+    detailedDescription: {
+      overview: "Join our Human Resources team as an HROps Tech Intern and gain valuable experience in HR technology, automation, and people analytics. You'll work on real projects that impact our workforce and learn how AI is transforming HR operations.",
+      responsibilities: [
+        "Assist in implementing HR technology solutions",
+        "Support HR automation and process optimization",
+        "Analyze HR data and create reports and dashboards",
+        "Help with recruitment technology and applicant tracking",
+        "Participate in employee engagement initiatives",
+        "Learn about AI applications in HR and people analytics",
+        "Support various HR projects and initiatives"
+      ],
+      requirements: [
+        "Currently pursuing or recently completed degree in HR, Business, or related field",
+        "Basic understanding of HR processes and practices",
+        "Interest in technology and data analysis",
+        "Proficiency in Microsoft Office and basic data tools",
+        "Strong communication and interpersonal skills",
+        "Eagerness to learn and adapt to new technologies",
+        "Attention to detail and organizational skills"
+      ],
+      benefits: [
+        "Hands-on experience with cutting-edge HR technology",
+        "Mentorship from experienced HR professionals",
+        "Exposure to AI and analytics in HR",
+        "Networking opportunities within the company",
+        "Potential for full-time employment",
+        "Certificate of completion",
+        "Stipend and flexible schedule"
+      ]
+    }
   },
   {
     id: 6,
@@ -64,7 +212,37 @@ const jobOpenings = [
     location: "Hyderabad, India",
     type: "Internship",
     experience: "0-1 years",
-    description: "Work on real AI projects, learn machine learning algorithms, and contribute to innovative solutions."
+    description: "Work on real AI projects, learn machine learning algorithms, and contribute to innovative solutions.",
+    detailedDescription: {
+      overview: "Join our Data Science team as an AI/ML Intern and work on real-world AI projects. You'll learn machine learning algorithms, contribute to innovative solutions, and gain hands-on experience with cutting-edge AI technologies.",
+      responsibilities: [
+        "Work on real AI/ML projects under senior mentorship",
+        "Learn and implement machine learning algorithms",
+        "Analyze datasets and build predictive models",
+        "Participate in model training and evaluation",
+        "Document experiments and findings",
+        "Collaborate with the data science team on research",
+        "Present project results and learnings"
+      ],
+      requirements: [
+        "Currently pursuing or recently completed degree in Computer Science, AI, or related field",
+        "Basic programming skills in Python",
+        "Understanding of machine learning concepts",
+        "Familiarity with data analysis and statistics",
+        "Strong mathematical and analytical skills",
+        "Eagerness to learn and work on challenging problems",
+        "Good communication and teamwork abilities"
+      ],
+      benefits: [
+        "Hands-on experience with real AI projects",
+        "Mentorship from senior data scientists",
+        "Access to cutting-edge AI tools and datasets",
+        "Learning opportunities and skill development",
+        "Networking with AI professionals",
+        "Potential for full-time employment",
+        "Stipend and flexible working hours"
+      ]
+    }
   },
   {
     id: 7,
@@ -73,7 +251,37 @@ const jobOpenings = [
     location: "Hyderabad, India",
     type: "Internship",
     experience: "0-1 years",
-    description: "Design intuitive user experiences for AI applications and learn modern design principles."
+    description: "Design intuitive user experiences for AI applications and learn modern design principles.",
+    detailedDescription: {
+      overview: "Join our Design team as a UI/UX Intern and learn how to create intuitive user experiences for AI applications. You'll work on real design projects, learn modern design principles, and contribute to user-centered design solutions.",
+      responsibilities: [
+        "Assist in designing user interfaces for AI applications",
+        "Create wireframes, prototypes, and mockups",
+        "Conduct user research and usability testing",
+        "Learn design tools like Figma, Sketch, or Adobe Creative Suite",
+        "Collaborate with developers and product managers",
+        "Participate in design reviews and feedback sessions",
+        "Document design decisions and user flows"
+      ],
+      requirements: [
+        "Currently pursuing or recently completed degree in Design, HCI, or related field",
+        "Basic understanding of UI/UX design principles",
+        "Familiarity with design tools (Figma, Sketch, or similar)",
+        "Creative thinking and attention to detail",
+        "Interest in AI and technology applications",
+        "Good communication and presentation skills",
+        "Portfolio of design work preferred"
+      ],
+      benefits: [
+        "Hands-on experience with real design projects",
+        "Mentorship from experienced designers",
+        "Access to professional design tools and resources",
+        "Learning opportunities in AI/UX design",
+        "Portfolio building opportunities",
+        "Networking with design professionals",
+        "Potential for full-time employment"
+      ]
+    }
   },
   {
     id: 8,
@@ -82,7 +290,37 @@ const jobOpenings = [
     location: "Hyderabad, India",
     type: "Internship",
     experience: "0-1 years",
-    description: "Manage influencer partnerships, create engaging content, and build brand awareness in the AI space."
+    description: "Manage influencer partnerships, create engaging content, and build brand awareness in the AI space.",
+    detailedDescription: {
+      overview: "Join our Marketing team as an Influencer PR Intern and learn how to build brand awareness in the AI space through influencer partnerships and engaging content creation. You'll work on real marketing campaigns and learn modern PR strategies.",
+      responsibilities: [
+        "Assist in managing influencer partnerships and collaborations",
+        "Create engaging content for social media and marketing campaigns",
+        "Research and identify potential influencers in the AI/tech space",
+        "Help with PR activities and media outreach",
+        "Monitor social media trends and brand mentions",
+        "Support content creation and campaign execution",
+        "Analyze campaign performance and provide insights"
+      ],
+      requirements: [
+        "Currently pursuing or recently completed degree in Marketing, Communications, or related field",
+        "Basic understanding of social media and digital marketing",
+        "Strong written and verbal communication skills",
+        "Creative thinking and content creation abilities",
+        "Interest in AI/technology and influencer marketing",
+        "Familiarity with social media platforms",
+        "Attention to detail and organizational skills"
+      ],
+      benefits: [
+        "Hands-on experience with real marketing campaigns",
+        "Mentorship from experienced marketing professionals",
+        "Access to marketing tools and analytics platforms",
+        "Learning opportunities in AI/tech marketing",
+        "Networking with industry professionals",
+        "Portfolio building with real campaign work",
+        "Potential for full-time employment"
+      ]
+    }
   }
 ];
 
@@ -249,7 +487,7 @@ export default function CareersPage() {
                       </div>
                       <Button 
                         onClick={() => handleJobApply(job)}
-                        className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white transform hover:scale-105 hover:shadow-lg transition-all duration-300"
+                        className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white transform hover:scale-105 hover:shadow-lg transition-all duration-300"
                       >
                         Apply Now
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -310,7 +548,7 @@ export default function CareersPage() {
                       </div>
                       <Button 
                         onClick={() => handleJobApply(job)}
-                        className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white transform hover:scale-105 hover:shadow-lg transition-all duration-300"
+                        className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white transform hover:scale-105 hover:shadow-lg transition-all duration-300"
                       >
                         Apply Now
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -375,16 +613,82 @@ export default function CareersPage() {
 
       {/* Job Application Dialog */}
       <Dialog open={isApplicationOpen} onOpenChange={setIsApplicationOpen}>
-        <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="sm:max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center space-x-2">
               <FileText className="h-6 w-6 text-purple-600" />
               <span>Apply for {selectedJob?.title}</span>
             </DialogTitle>
             <DialogDescription>
-              Fill out the form below to submit your application. We'll review your profile and get back to you soon.
+              Review the job details below and fill out the application form. We'll review your profile and get back to you soon.
             </DialogDescription>
           </DialogHeader>
+
+          {/* Job Description Section */}
+          {selectedJob?.detailedDescription && (
+            <div className="mb-8 p-6 bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg border border-purple-200">
+              <div className="space-y-6">
+                {/* Job Overview */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                    <Briefcase className="h-5 w-5 mr-2 text-purple-600" />
+                    Job Overview
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    {selectedJob.detailedDescription.overview}
+                  </p>
+                </div>
+
+                {/* Responsibilities */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                    <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                    Key Responsibilities
+                  </h3>
+                  <ul className="space-y-2">
+                    {selectedJob.detailedDescription.responsibilities.map((responsibility, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-green-600 mr-2 mt-1">•</span>
+                        <span className="text-gray-700">{responsibility}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Requirements */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                    <Users className="h-5 w-5 mr-2 text-blue-600" />
+                    Requirements
+                  </h3>
+                  <ul className="space-y-2">
+                    {selectedJob.detailedDescription.requirements.map((requirement, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-blue-600 mr-2 mt-1">•</span>
+                        <span className="text-gray-700">{requirement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Benefits */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                    <Zap className="h-5 w-5 mr-2 text-orange-600" />
+                    Benefits & Perks
+                  </h3>
+                  <ul className="space-y-2">
+                    {selectedJob.detailedDescription.benefits.map((benefit, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-orange-600 mr-2 mt-1">•</span>
+                        <span className="text-gray-700">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -486,7 +790,7 @@ export default function CareersPage() {
               <Button 
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Application'}
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -515,7 +819,7 @@ export default function CareersPage() {
           <div className="flex justify-center">
             <Button 
               onClick={() => setShowSuccessDialog(false)}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white"
+              className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white"
             >
               Close
             </Button>
