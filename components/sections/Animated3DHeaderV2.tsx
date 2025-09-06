@@ -11,7 +11,7 @@ export default function Animated3DHeaderV2() {
   const [showCursor, setShowCursor] = useState(true);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const fullText = "Where Artificial Intelligence Meets Insights";
+  const fullText = "Where Artificial Intelligence Meets Humanity...";
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -32,6 +32,8 @@ export default function Animated3DHeaderV2() {
     // Typing animation with infinite loop and pause
     let animationPhase = 'typing'; // 'typing', 'pausing', 'resetting'
     let pauseStartTime = 0;
+    let cursorBlinkStartTime = 0;
+    let isCursorBlinking = false;
     
     const typingInterval = setInterval(() => {
       setTypedText(prev => {
@@ -39,15 +41,18 @@ export default function Animated3DHeaderV2() {
           if (prev.length < fullText.length) {
             return fullText.slice(0, prev.length + 1);
           } else {
-            // Start pause phase
+            // Start pause phase with cursor blinking
             animationPhase = 'pausing';
             pauseStartTime = Date.now();
+            cursorBlinkStartTime = Date.now();
+            isCursorBlinking = true;
             return prev;
           }
         } else if (animationPhase === 'pausing') {
           // Check if pause duration is complete
           if (Date.now() - pauseStartTime >= 2000) {
             animationPhase = 'resetting';
+            isCursorBlinking = false;
             return ''; // Clear text immediately
           }
           return prev;
@@ -59,16 +64,23 @@ export default function Animated3DHeaderV2() {
       });
     }, 100);
 
-    // Cursor blinking - smoother during transitions
+    // Cursor blinking - 2 seconds at end, then normal blinking
     const cursorInterval = setInterval(() => {
       setShowCursor(prev => {
-        // Keep cursor visible during pause and reset phases for smoother transition
-        if (animationPhase === 'pausing' || animationPhase === 'resetting') {
-          return true;
+        if (isCursorBlinking) {
+          // Blink cursor for 2 seconds at the end (faster blinking)
+          const blinkElapsed = Date.now() - cursorBlinkStartTime;
+          if (blinkElapsed >= 2000) {
+            isCursorBlinking = false;
+            return true; // Keep cursor visible after blinking period
+          }
+          return !prev; // Faster blinking during the 2-second period
+        } else if (animationPhase === 'resetting') {
+          return true; // Keep cursor visible during reset
         }
-        return !prev;
+        return !prev; // Normal blinking during typing
       });
-    }, 500);
+    }, 200); // Faster blinking: 200ms instead of 500ms
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
@@ -137,10 +149,10 @@ export default function Animated3DHeaderV2() {
         />
       </div>
 
-      {/* Enhanced Central 3D Orb */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      {/* Enhanced Central 3D Orb - Mobile Responsive */}
+      <div className="absolute inset-0 flex items-center justify-center">
         <div 
-          className="relative w-[500px] h-[500px]"
+          className="relative w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px]"
           style={{
             transform: `rotateX(${mousePosition.y * 30}deg) rotateY(${mousePosition.x * 30}deg) translateZ(${scrollY * 0.1}px)`,
             transition: 'transform 0.1s ease-out',
@@ -175,19 +187,19 @@ export default function Animated3DHeaderV2() {
             }}
           />
           
-          {/* Inner Core */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white opacity-80 animate-ping" />
+          {/* Inner Core - Mobile Responsive */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white opacity-80 animate-ping" />
         </div>
       </div>
 
-      {/* Enhanced Floating Elements */}
+      {/* Enhanced Floating Elements - Mobile Optimized */}
       {floatingElements.map((element, index) => {
         const Icon = element.icon;
         const angle = (index / floatingElements.length) * Math.PI * 2;
-        const radius = 250 + Math.sin(time * element.speed + element.delay) * 80;
+        const radius = 120 + Math.sin(time * element.speed + element.delay) * 30;
         const x = Math.cos(time * element.speed + angle) * radius;
         const y = Math.sin(time * element.speed * 0.7 + angle) * radius;
-        const z = Math.sin(time * element.speed * 1.2 + element.delay) * 150;
+        const z = Math.sin(time * element.speed * 1.2 + element.delay) * 50;
 
         return (
           <div
@@ -207,19 +219,19 @@ export default function Animated3DHeaderV2() {
         );
       })}
 
-      {/* Enhanced Particle System */}
-      {Array.from({ length: 80 }).map((_, i) => {
+      {/* Enhanced Particle System - Mobile Optimized */}
+      {Array.from({ length: 40 }).map((_, i) => {
         const particleType = particleTypes[i % particleTypes.length];
-        const angle = (i / 80) * Math.PI * 2;
-        const radius = 350 + Math.sin(time * particleType.speed + i) * 120;
+        const angle = (i / 40) * Math.PI * 2;
+        const radius = 150 + Math.sin(time * particleType.speed + i) * 40;
         const x = Math.cos(time * particleType.speed + angle) * radius;
         const y = Math.sin(time * particleType.speed * 0.8 + angle) * radius;
-        const size = particleType.size + Math.sin(time + i) * particleType.size * 0.5;
+        const size = particleType.size + Math.sin(time + i) * particleType.size * 0.3;
 
         return (
           <div
             key={i}
-            className={`absolute ${particleType.color} rounded-full opacity-70`}
+            className={`absolute ${particleType.color} rounded-full opacity-60`}
             style={{
               left: `calc(50% + ${x}px)`,
               top: `calc(50% + ${y}px)`,
@@ -227,23 +239,23 @@ export default function Animated3DHeaderV2() {
               height: `${size}px`,
               transform: 'translate(-50%, -50%)',
               animation: `pulse ${1.5 + Math.random() * 2}s ease-in-out infinite`,
-              boxShadow: `0 0 ${size * 2}px ${particleType.color.replace('bg-', '')}`,
+              boxShadow: `0 0 ${size * 1.5}px ${particleType.color.replace('bg-', '')}`,
             }}
           />
         );
       })}
 
-      {/* Enhanced Neural Network */}
+      {/* Enhanced Neural Network - Mobile Optimized */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none">
-        {Array.from({ length: 30 }).map((_, i) => {
-          const startAngle = (i / 30) * Math.PI * 2;
-          const endAngle = ((i + 7) / 30) * Math.PI * 2;
-          const radius = 300;
+        {Array.from({ length: 20 }).map((_, i) => {
+          const startAngle = (i / 20) * Math.PI * 2;
+          const endAngle = ((i + 7) / 20) * Math.PI * 2;
+          const radius = 200;
           
-          const x1 = Math.cos(time * 0.15 + startAngle) * radius + window.innerWidth / 2;
-          const y1 = Math.sin(time * 0.15 + startAngle) * radius + window.innerHeight / 2;
-          const x2 = Math.cos(time * 0.15 + endAngle) * radius + window.innerWidth / 2;
-          const y2 = Math.sin(time * 0.15 + endAngle) * radius + window.innerHeight / 2;
+          const x1 = Math.cos(time * 0.15 + startAngle) * radius + (typeof window !== 'undefined' ? window.innerWidth / 2 : 400);
+          const y1 = Math.sin(time * 0.15 + startAngle) * radius + (typeof window !== 'undefined' ? window.innerHeight / 2 : 300);
+          const x2 = Math.cos(time * 0.15 + endAngle) * radius + (typeof window !== 'undefined' ? window.innerWidth / 2 : 400);
+          const y2 = Math.sin(time * 0.15 + endAngle) * radius + (typeof window !== 'undefined' ? window.innerHeight / 2 : 300);
 
           return (
             <line
@@ -273,18 +285,23 @@ export default function Animated3DHeaderV2() {
         </defs>
       </svg>
 
-      {/* Enhanced Content Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="text-center space-y-10">
-          <div className="space-y-6">
-            <div className="inline-block px-8 py-3 bg-white/15 backdrop-blur-md rounded-full border border-white/30 shadow-2xl">
-              <span className="text-white/95 text-base font-semibold tracking-wide">Welcome to the Future of AI</span>
+      {/* Enhanced Content Overlay - MOBILE RESPONSIVE */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-6 sm:space-y-8 lg:space-y-10 w-full max-w-6xl">
+          <div className="space-y-4 sm:space-y-6">
+            {/* Welcome Badge - Mobile Responsive */}
+            <div className="inline-block px-4 sm:px-6 lg:px-8 py-2 sm:py-3 bg-white/15 backdrop-blur-md rounded-full border border-white/30 shadow-2xl">
+              <span className="text-white/95 text-sm sm:text-base font-semibold tracking-wide">Let's build our Future with AI</span>
             </div>
-            <h1 className="text-7xl sm:text-8xl lg:text-9xl font-bold text-white leading-tight tracking-tight">
+            
+            {/* Main Title - MOBILE FIRST APPROACH */}
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-white leading-tight tracking-tight">
               DevTechAi<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 via-blue-400 to-cyan-400 animate-pulse">.Org</span>
             </h1>
-            <div className="text-2xl sm:text-3xl text-white/85 max-w-4xl mx-auto leading-relaxed font-light px-6 py-3 border-2 border-white/20 rounded-lg backdrop-blur-sm bg-white/5 shadow-lg" style={{ boxShadow: '0 0 15px rgba(255, 255, 255, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.05)' }}>
-              <div className="flex flex-wrap justify-center items-center gap-1">
+            
+            {/* Typing Animation - MOBILE RESPONSIVE */}
+            <div className="text-sm sm:text-base md:text-lg lg:text-xl text-white/85 max-w-5xl mx-auto leading-relaxed sm:leading-loose font-bold px-3 sm:px-4 md:px-6 py-3 sm:py-4 border-2 border-white/20 rounded-lg backdrop-blur-sm bg-white/5 shadow-lg" style={{ fontFamily: 'var(--font-orbitron)', boxShadow: '0 0 15px rgba(255, 255, 255, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.05)' }}>
+              <div className="flex flex-wrap justify-center items-center gap-0.5 sm:gap-1">
                 {typedText.split('').map((char, index) => {
                   const isSpace = char === ' ';
                   const delay = index * 0.1;
@@ -299,6 +316,9 @@ export default function Animated3DHeaderV2() {
                       style={{
                         animationDelay: `${delay}s`,
                         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                        textShadow: isVisible ? '0 0 2px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.6), 0 0 6px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.2)' : 'none',
+                        WebkitTextStroke: isVisible ? '0.5px rgba(255, 255, 255, 0.6)' : 'none',
+                        filter: isVisible ? 'drop-shadow(0 0 1px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.4))' : 'none',
                       }}
                     >
                       {isSpace ? '\u00A0' : char}
@@ -306,36 +326,72 @@ export default function Animated3DHeaderV2() {
                   );
                 })}
                 {showCursor && (
-                  <span className="inline-block w-0.5 h-8 bg-white/80 animate-pulse ml-1" />
+                  <span 
+                    className="inline-block w-0.5 h-4 sm:h-6 lg:h-8 bg-white/80 animate-pulse ml-1" 
+                    style={{
+                      boxShadow: '0 0 2px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.6), 0 0 6px rgba(255, 255, 255, 0.4)',
+                      filter: 'drop-shadow(0 0 1px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.4))',
+                    }}
+                  />
                 )}
               </div>
             </div>
-            <div className="flex justify-center space-x-4 text-lg text-white/70">
-              <span className="px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">Machine Learning</span>
-              <span className="px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">NLP</span>
-              <span className="px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">Computer Vision</span>
-              <span className="px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">Cloud AI</span>
+            
+            {/* Technology Tags - MOBILE RESPONSIVE STACKING */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4">
+                <a 
+                  href="/services/machine-learning" 
+                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-500/30 to-purple-600/40 rounded-full backdrop-blur-sm border border-purple-300/50 text-white font-semibold hover:from-purple-500/50 hover:to-purple-600/60 hover:border-purple-300/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
+                >
+                  Machine Learning
+                </a>
+                <a 
+                  href="/services/natural-language-processing" 
+                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500/30 to-blue-600/40 rounded-full backdrop-blur-sm border border-blue-300/50 text-white font-semibold hover:from-blue-500/50 hover:to-blue-600/60 hover:border-blue-300/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
+                >
+                  NLP
+                </a>
+                <a 
+                  href="/services/computer-vision" 
+                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-500/30 to-green-600/40 rounded-full backdrop-blur-sm border border-green-300/50 text-white font-semibold hover:from-green-500/50 hover:to-green-600/60 hover:border-green-300/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-500/25 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
+                >
+                  Computer Vision
+                </a>
+                <a 
+                  href="/services/cloud-saas" 
+                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-orange-500/30 to-orange-600/40 rounded-full backdrop-blur-sm border border-orange-300/50 text-white font-semibold hover:from-orange-500/50 hover:to-orange-600/60 hover:border-orange-300/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
+                >
+                  Cloud AI
+                </a>
+              </div>
             </div>
           </div>
           
-          <div className="flex justify-center mt-8">
-            <button className="px-10 py-5 bg-gradient-to-r from-purple-600/70 via-indigo-600/70 to-blue-600/70 hover:from-purple-700/80 hover:via-indigo-700/80 hover:to-blue-700/80 text-white rounded-full font-bold text-lg transform hover:scale-110 hover:shadow-2xl transition-all duration-300 border border-white/20 backdrop-blur-sm">
+          {/* CTA Button - MOBILE RESPONSIVE */}
+          <div className="flex justify-center mt-6 sm:mt-8">
+            <button 
+              onClick={() => {
+                const servicesSection = document.getElementById('services');
+                servicesSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 bg-gradient-to-r from-purple-600/70 via-indigo-600/70 to-blue-600/70 hover:from-purple-700/80 hover:via-indigo-700/80 hover:to-blue-700/80 text-white rounded-full font-bold text-sm sm:text-base md:text-lg transform hover:scale-110 hover:shadow-2xl transition-all duration-300 border border-white/20 backdrop-blur-sm cursor-pointer min-h-[44px] min-w-[44px]"
+            >
               Explore AI Solutions
             </button>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="flex flex-col items-center space-y-3 text-white/70">
-          <span className="text-base font-medium">Scroll to explore</span>
-          <div className="w-8 h-12 border-2 border-white/40 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
-            <div className="w-2 h-4 bg-white/80 rounded-full mt-2 animate-bounce" />
+      {/* Enhanced Scroll Indicator - MOBILE CENTERED */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 sm:absolute sm:bottom-8 sm:top-auto sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:translate-y-0">
+        <div className="flex flex-col items-center space-y-2 sm:space-y-3 text-white/70">
+          <span className="text-xs sm:text-sm md:text-base font-medium">Scroll to explore</span>
+          <div className="w-6 h-8 sm:w-8 sm:h-12 border-2 border-white/40 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
+            <div className="w-1.5 h-3 sm:w-2 sm:h-4 bg-white/80 rounded-full mt-1 sm:mt-2 animate-bounce" />
           </div>
         </div>
       </div>
-
 
       <style jsx>{`
         @keyframes spin {

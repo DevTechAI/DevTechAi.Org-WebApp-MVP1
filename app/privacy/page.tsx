@@ -208,8 +208,8 @@ export default function PrivacyPage() {
                   We use cookies and similar technologies to enhance your experience:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-gray-600 ml-4">
-                  <li><strong>Essential Cookies:</strong> Required for basic website functionality</li>
-                  <li><strong>Analytics Cookies:</strong> Help us understand website usage</li>
+                  <li><strong>Essential Cookies:</strong> Required for basic WebApp functionality</li>
+                  <li><strong>Analytics Cookies:</strong> Help us understand WebApp usage</li>
                   <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
                   <li><strong>Marketing Cookies:</strong> Used for targeted advertising (with consent)</li>
                 </ul>

@@ -1,6 +1,6 @@
-# DevTech AI - Professional AI Solutions Website
+# DevTech AI - Professional AI Solutions WebApp
 
-A modern, responsive website for DevTech AI built with Next.js, React, and Tailwind CSS. Features subtle 3D elements and a modular, developer-friendly architecture.
+A modern, responsive WebApp for DevTech AI built with Next.js, React, and Tailwind CSS. Features subtle 3D elements and a modular, developer-friendly architecture.
 
 ## 🚀 Features
 

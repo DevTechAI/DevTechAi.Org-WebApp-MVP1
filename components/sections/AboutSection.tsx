@@ -4,10 +4,10 @@ import { Badge } from '@/components/ui/badge';
 import { Sparkles, Target, Users } from 'lucide-react';
 
 const stats = [
-  { value: "6", label: "Years of Excellence", color: "purple" },
-  { value: "15+", label: "Industries Served", color: "green" },
-  { value: "200+", label: "Happy Clients", color: "blue" },
-  { value: "50M+", label: "Data Points Processed", color: "orange" },
+  { value: "15", label: "Years of IT Excellence", color: "purple" },
+  { value: "5+", label: "Industries Served", color: "green" },
+  { value: "20+", label: "Happy Domestic & International Clients", color: "blue" },
+  { value: "10M+", label: "Data Points Processed", color: "orange" },
 ];
 
 const colorClasses = {
