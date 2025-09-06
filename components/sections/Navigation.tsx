@@ -128,7 +128,7 @@ export default function Navigation({ activeSection, onScrollToSection }: Navigat
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black/80 backdrop-blur-xl border-t border-white/10 transform transition-all duration-300">
+        <div className="md:hidden bg-white/10 backdrop-blur-xl border-t border-white/30 transform transition-all duration-300">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navigationItems.map((item) => (
               <div key={item.id}>
@@ -136,7 +136,7 @@ export default function Navigation({ activeSection, onScrollToSection }: Navigat
                   <div>
                     <button
                       onClick={() => setActiveDropdown(activeDropdown === item.id ? null : item.id)}
-                      className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-600 transform hover:scale-105 transition-all duration-300"
+                      className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-white hover:text-white/80 transform hover:scale-105 transition-all duration-300"
                     >
                       <span>{item.label}</span>
                       <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
@@ -147,7 +147,7 @@ export default function Navigation({ activeSection, onScrollToSection }: Navigat
                           <Link
                             key={index}
                             href={dropdownItem.href}
-                            className="block px-3 py-2 text-sm text-gray-600 hover:text-slate-600 hover:bg-purple-50 rounded transition-colors duration-200"
+                            className="block px-3 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded transition-colors duration-200"
                             onClick={() => {
                               setIsMenuOpen(false);
                               setActiveDropdown(null);
@@ -163,7 +163,7 @@ export default function Navigation({ activeSection, onScrollToSection }: Navigat
                   <Link
                     href={item.href}
                     onClick={() => handleNavClick(item.id, item.href)}
-                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-slate-600 w-full text-left transform hover:scale-105 transition-all duration-300"
+                    className="block px-3 py-2 text-base font-medium text-white hover:text-white/80 w-full text-left transform hover:scale-105 transition-all duration-300"
                   >
                     {item.label}
                   </Link>
