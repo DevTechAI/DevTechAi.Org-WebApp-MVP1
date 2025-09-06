@@ -15,7 +15,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'services', 'features', 'about', 'testimonials', 'contact'];
+      const sections = ['home', 'services', 'about', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {

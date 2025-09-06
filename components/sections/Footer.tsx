@@ -1,15 +1,18 @@
 "use client";
 
 import { Brain } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const footerSections = [
   {
     title: "Services",
     links: [
-      { label: "Machine Learning", href: "#" },
-      { label: "Natural Language Processing", href: "#" },
-      { label: "Computer Vision", href: "#" },
-      { label: "Data Analytics", href: "#" },
+      { label: "Machine Learning", href: "/services/machine-learning" },
+      { label: "Natural Language Processing", href: "/services/natural-language-processing" },
+      { label: "Computer Vision", href: "/services/computer-vision" },
+      { label: "Data Analytics", href: "/services/data-analytics" },
+      { label: "Cloud SaaS Services", href: "/services/cloud-saas" },
     ]
   },
   {
@@ -17,7 +20,6 @@ const footerSections = [
     links: [
       { label: "About Us", href: "#" },
       { label: "Careers", href: "#" },
-      { label: "Blog", href: "#" },
       { label: "Contact", href: "#" },
     ]
   },
@@ -36,10 +38,16 @@ export default function Footer() {
       <div className="flex justify-center">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center text-center">
     <div className="space-y-4">
-      <div className="flex items-center justify-center space-x-2 transform hover:scale-105 transition-transform duration-300">
-        <Brain className="h-8 w-8 text-purple-400" />
+      <Link href="/" className="flex items-center justify-center space-x-2 transform hover:scale-105 transition-transform duration-300">
+        <Image 
+          src="/devtechai-logo.png" 
+          alt="DevTechAi.Org Logo" 
+          width={32} 
+          height={32}
+          className="h-8 w-8"
+        />
         <span className="text-xl font-bold">DevTechAi.Org</span>
-      </div>
+      </Link>
       <p className="text-gray-400 leading-relaxed max-w-xs">
         Transforming businesses through intelligent AI solutions. 
         Your partner in the journey to digital excellence.
@@ -68,7 +76,7 @@ export default function Footer() {
 
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 DevTechAi.Org. All rights reserved. Privacy Policy | Terms of Service</p>
+          <p>&copy; 2025 <Link href="/" className="hover:text-purple-400 transition-colors duration-300">DevTechAi.Org</Link>. All rights reserved. <a href="/privacy" className="hover:text-purple-400 transition-colors duration-300">Privacy Policy</a> | <a href="/terms" className="hover:text-purple-400 transition-colors duration-300">Terms of Service</a></p>
         </div>
       </div>
     </footer>

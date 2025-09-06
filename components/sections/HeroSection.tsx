@@ -107,7 +107,7 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
 
           <div className="relative">
             <div 
-              className="bg-gradient-to-br from-purple-400 to-blue-500 rounded-3xl p-8 transform rotate-3 shadow-2xl hover:rotate-6 transition-transform duration-500 hover:shadow-3xl"
+              className="bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-3xl p-8 transform rotate-3 shadow-2xl hover:rotate-6 transition-transform duration-500 hover:shadow-3xl"
               style={{
                 transform: `rotate(3deg) translateX(${mousePosition.x * 0.01}px) translateY(${mousePosition.y * 0.01}px)`,
               }}
@@ -116,22 +116,31 @@ export default function HeroSection({ onScrollToSection }: HeroSectionProps) {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Brain className="h-8 w-8 text-purple-600" />
-                    <div className="h-4 bg-gray-200 rounded w-32 animate-pulse"></div>
+                    <div className="text-sm font-semibold text-gray-700">AI Solutions Dashboard</div>
                   </div>
                   <div className="space-y-3">
-                    <div className="h-3 bg-gradient-to-r from-purple-200 to-blue-200 rounded w-full animate-pulse"></div>
-                    <div className="h-3 bg-gradient-to-r from-green-200 to-purple-200 rounded w-4/5 animate-pulse"></div>
-                    <div className="h-3 bg-gradient-to-r from-blue-200 to-green-200 rounded w-3/4 animate-pulse"></div>
+                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-3 border-l-4 border-blue-500">
+                      <div className="text-xs font-medium text-blue-700">Machine Learning</div>
+                      <div className="text-xs text-gray-600">Predictive Analytics Active</div>
+                    </div>
+                    <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-3 border-l-4 border-purple-500">
+                      <div className="text-xs font-medium text-purple-700">NLP Processing</div>
+                      <div className="text-xs text-gray-600">Language Models Running</div>
+                    </div>
+                    <div className="bg-gradient-to-r from-pink-50 to-blue-50 rounded-lg p-3 border-l-4 border-pink-500">
+                      <div className="text-xs font-medium text-pink-700">Computer Vision</div>
+                      <div className="text-xs text-gray-600">Image Analysis Complete</div>
+                    </div>
                   </div>
                   <div className="flex justify-between pt-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center transform hover:scale-110 hover:rotate-12 transition-all duration-300">
-                      <BarChart3 className="h-8 w-8 text-purple-600" />
-                    </div>
                     <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center transform hover:scale-110 hover:rotate-12 transition-all duration-300">
-                      <Zap className="h-8 w-8 text-blue-600" />
+                      <BarChart3 className="h-8 w-8 text-blue-600" />
                     </div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center transform hover:scale-110 hover:rotate-12 transition-all duration-300">
-                      <Shield className="h-8 w-8 text-green-600" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center transform hover:scale-110 hover:rotate-12 transition-all duration-300">
+                      <Zap className="h-8 w-8 text-purple-600" />
+                    </div>
+                    <div className="w-16 h-16 bg-gradient-to-br from-pink-100 to-pink-200 rounded-lg flex items-center justify-center transform hover:scale-110 hover:rotate-12 transition-all duration-300">
+                      <Shield className="h-8 w-8 text-pink-600" />
                     </div>
                   </div>
                 </div>

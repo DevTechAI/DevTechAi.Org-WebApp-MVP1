@@ -136,16 +136,18 @@ export default function ContactSection() {
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-purple-100 transform hover:scale-105 hover:shadow-lg transition-all duration-500">
-              <h4 className="font-semibold text-gray-900 mb-3">Schedule a Free Consultation</h4>
-              <p className="text-gray-600 mb-4">
-                Book a 30-minute call with our AI experts to discuss your specific needs and explore potential solutions.
-              </p>
-              <Button 
-                variant="outline" 
-                className="border-purple-200 text-purple-700 hover:bg-purple-50 transform hover:scale-105 transition-all duration-300"
-              >
-                Book Now
-              </Button>
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1234567890123!2d78.3744!3d17.4478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91b5c5c5c5c5%3A0x5c5c5c5c5c5c5c5c!2sHitech%20City%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                  width="100%"
+                  height="250"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-64"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>

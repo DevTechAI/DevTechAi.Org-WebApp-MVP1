@@ -15,7 +15,7 @@ const testimonials = [
   {
     name: "Michael Rodriguez",
     role: "Operations Director",
-    company: "Manufacturing",
+    company: "GlobalTech Industries",
     content: "The predictive maintenance solution has reduced our downtime by 60% and saved us millions in operational costs. Truly transformative technology.",
     rating: 5
   },
