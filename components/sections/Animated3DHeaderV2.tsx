@@ -121,7 +121,7 @@ export default function Animated3DHeaderV2() {
   ];
 
   return (
-    <section className="relative h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900">
+    <section className="relative h-screen overflow-hidden bg-gradient-to-br from-slate-800 via-indigo-800 to-purple-800">
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0">
         {/* Dynamic Grid */}
@@ -191,6 +191,7 @@ export default function Animated3DHeaderV2() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white opacity-80 animate-ping" />
         </div>
       </div>
+
 
       {/* Enhanced Floating Elements - Mobile Optimized */}
       {floatingElements.map((element, index) => {
@@ -342,25 +343,25 @@ export default function Animated3DHeaderV2() {
               <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4">
                 <a 
                   href="/services/machine-learning" 
-                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-500/30 to-purple-600/40 rounded-full backdrop-blur-sm border border-purple-300/50 text-white font-semibold hover:from-purple-500/50 hover:to-purple-600/60 hover:border-purple-300/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
+                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-500/10 to-purple-600/15 backdrop-blur-xl rounded-full border border-purple-300/25 text-white font-semibold hover:from-purple-500/20 hover:to-purple-600/25 hover:border-purple-300/40 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/20 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
                 >
                   Machine Learning
                 </a>
                 <a 
                   href="/services/natural-language-processing" 
-                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500/30 to-blue-600/40 rounded-full backdrop-blur-sm border border-blue-300/50 text-white font-semibold hover:from-blue-500/50 hover:to-blue-600/60 hover:border-blue-300/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
+                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500/10 to-blue-600/15 backdrop-blur-xl rounded-full border border-blue-300/25 text-white font-semibold hover:from-blue-500/20 hover:to-blue-600/25 hover:border-blue-300/40 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/20 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
                 >
                   NLP
                 </a>
                 <a 
                   href="/services/computer-vision" 
-                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-500/30 to-green-600/40 rounded-full backdrop-blur-sm border border-green-300/50 text-white font-semibold hover:from-green-500/50 hover:to-green-600/60 hover:border-green-300/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-500/25 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
+                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-500/10 to-green-600/15 backdrop-blur-xl rounded-full border border-green-300/25 text-white font-semibold hover:from-green-500/20 hover:to-green-600/25 hover:border-green-300/40 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-500/20 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
                 >
                   Computer Vision
                 </a>
                 <a 
                   href="/services/cloud-saas" 
-                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-orange-500/30 to-orange-600/40 rounded-full backdrop-blur-sm border border-orange-300/50 text-white font-semibold hover:from-orange-500/50 hover:to-orange-600/60 hover:border-orange-300/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
+                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 bg-gradient-to-r from-orange-500/10 to-orange-600/15 backdrop-blur-xl rounded-full border border-orange-300/25 text-white font-semibold hover:from-orange-500/20 hover:to-orange-600/25 hover:border-orange-300/40 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/20 text-xs sm:text-sm md:text-base min-h-[44px] flex items-center"
                 >
                   Cloud AI
                 </a>
