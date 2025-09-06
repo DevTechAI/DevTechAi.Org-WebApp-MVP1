@@ -79,7 +79,11 @@ export default function Navigation({ activeSection, onScrollToSection }: Navigat
                     {item.label}
                   </button>
                   {activeDropdown === item.id && (
-                    <div className="absolute top-full left-0 mt-1 w-64 bg-white/90 backdrop-blur-xl rounded-lg shadow-2xl border border-white/40 py-2 z-50">
+                    <div 
+                      className="absolute top-full left-0 mt-1 w-64 bg-white/90 backdrop-blur-xl rounded-lg shadow-2xl border border-white/40 py-2 z-50"
+                      onMouseEnter={() => setActiveDropdown(item.id)}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                    >
                       {item.dropdown.map((dropdownItem, index) => (
                         <Link
                           key={index}

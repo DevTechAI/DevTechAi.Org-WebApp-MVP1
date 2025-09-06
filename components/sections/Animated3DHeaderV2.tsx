@@ -192,6 +192,7 @@ export default function Animated3DHeaderV2() {
         </div>
       </div>
 
+
       {/* Enhanced Floating Elements - Mobile Optimized */}
       {floatingElements.map((element, index) => {
         const Icon = element.icon;
