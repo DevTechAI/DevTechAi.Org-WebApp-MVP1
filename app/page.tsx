@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Navigation from '@/components/sections/Navigation';
+import Animated3DHeaderV2 from '@/components/sections/Animated3DHeaderV2';
 import HeroSection from '@/components/sections/HeroSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
@@ -37,12 +38,12 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-green-50">
+    <div className="min-h-screen">
       <Navigation 
         activeSection={activeSection} 
         onScrollToSection={scrollToSection} 
       />
-      <HeroSection onScrollToSection={scrollToSection} />
+      <Animated3DHeaderV2 />
       <ServicesSection />
       <FeaturesSection />
       <AboutSection />

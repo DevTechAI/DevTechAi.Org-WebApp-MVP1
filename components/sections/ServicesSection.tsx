@@ -211,7 +211,7 @@ const colorClasses = {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-16 px-4 sm:px-6 lg:px-8 bg-white/50 relative overflow-hidden">
+    <section id="services" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-purple-50 to-green-50 relative overflow-hidden">
       {/* 3D Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-2xl animate-pulse" />
