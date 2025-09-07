@@ -5,7 +5,7 @@
       "has": [
         {
           "type": "host",
-          "value": "devtechai.org"
+          "value": "www.devtechai.org"
         }
       ],
       "destination": "https://www.devtechai.org/",
