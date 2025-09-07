@@ -1,25 +1,19 @@
 {
   "redirects": [
     {
-      "source": "/",
+      "source": "/(.*)",
       "has": [
-        {
-          "type": "host",
-          "value": "www.devtechai.org"
-        }
+        { "type": "host", "value": "devtechai.org" }
       ],
-      "destination": "https://www.devtechai.org/",
+      "destination": "https://www.devtechai.org/$1",
       "permanent": true
     },
     {
-      "source": "/",
+      "source": "/(.*)",
       "has": [
-        {
-          "type": "scheme",
-          "value": "http"
-        }
+        { "type": "header", "key": "x-forwarded-proto", "value": "http" }
       ],
-      "destination": "https://www.devtechai.org/",
+      "destination": "https://www.devtechai.org/$1",
       "permanent": true
     }
   ]
