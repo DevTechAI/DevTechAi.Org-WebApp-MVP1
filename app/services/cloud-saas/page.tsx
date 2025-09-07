@@ -141,13 +141,13 @@ export default function CloudSaaSPage() {
                 <Server className="w-4 h-4 mr-1" />
                 Cloud SaaS Solutions
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight px-2">
                 Scale Your Business with{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   Cloud SaaS
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto px-2">
                 Transform your business with scalable cloud solutions and software-as-a-service applications. 
                 From infrastructure to mobile apps, we deliver enterprise-grade cloud solutions.
               </p>
@@ -186,10 +186,10 @@ export default function CloudSaaSPage() {
             <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 transform hover:scale-105 transition-all duration-300">
               Cloud Solutions
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               Comprehensive Cloud SaaS Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               From cloud infrastructure to SaaS applications, our solutions provide 
               scalability, security, and performance for modern businesses.
             </p>
@@ -243,10 +243,10 @@ export default function CloudSaaSPage() {
             <Badge className="bg-green-100 text-green-700 hover:bg-green-200 transform hover:scale-105 transition-all duration-300">
               Industries We Serve
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               Cloud Solutions Across Industries
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Our cloud SaaS solutions are tailored to meet the unique challenges 
               and opportunities across various industries.
             </p>
@@ -300,10 +300,10 @@ export default function CloudSaaSPage() {
             <Badge className="bg-purple-100 text-purple-700 hover:bg-purple-200 transform hover:scale-105 transition-all duration-300">
               Our Technology
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               Advanced Cloud Technologies
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               We leverage cutting-edge cloud technologies and platforms to deliver 
               scalable, secure, and efficient cloud solutions.
             </p>
@@ -356,10 +356,10 @@ export default function CloudSaaSPage() {
             <Badge className="bg-green-100 text-green-700 hover:bg-green-200 transform hover:scale-105 transition-all duration-300">
               Our Process
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               How We Build Your Cloud Solution
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Our systematic approach ensures successful cloud implementation 
               tailored to your specific business needs.
             </p>

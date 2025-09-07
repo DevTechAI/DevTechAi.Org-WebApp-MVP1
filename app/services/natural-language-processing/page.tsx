@@ -141,13 +141,13 @@ export default function NaturalLanguageProcessingPage() {
                 <MessageSquare className="w-4 h-4 mr-1" />
                 Natural Language Processing
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight px-2">
                 Unlock the Power of{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   Human Language
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto px-2">
                 Transform text data into actionable insights with our advanced NLP solutions. 
                 From chatbots to sentiment analysis, we help you understand and leverage human language.
               </p>
@@ -186,10 +186,10 @@ export default function NaturalLanguageProcessingPage() {
             <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 transform hover:scale-105 transition-all duration-300">
               NLP Solutions
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               Comprehensive Language Processing Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               From intelligent chatbots to advanced text analysis, our NLP solutions help you 
               understand, process, and leverage human language for business growth.
             </p>
@@ -243,10 +243,10 @@ export default function NaturalLanguageProcessingPage() {
             <Badge className="bg-green-100 text-green-700 hover:bg-green-200 transform hover:scale-105 transition-all duration-300">
               Use Cases
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               Real-World NLP Applications
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Discover how our NLP solutions are transforming businesses across various industries 
               and use cases.
             </p>
@@ -300,10 +300,10 @@ export default function NaturalLanguageProcessingPage() {
             <Badge className="bg-purple-100 text-purple-700 hover:bg-purple-200 transform hover:scale-105 transition-all duration-300">
               Our Technology
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               Advanced NLP Technologies
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               We leverage cutting-edge NLP technologies and models to deliver accurate, 
               scalable, and efficient language processing solutions.
             </p>
@@ -356,10 +356,10 @@ export default function NaturalLanguageProcessingPage() {
             <Badge className="bg-green-100 text-green-700 hover:bg-green-200 transform hover:scale-105 transition-all duration-300">
               Our Process
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               How We Build Your NLP Solution
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Our systematic approach ensures successful NLP implementation tailored to your specific needs.
             </p>
           </div>

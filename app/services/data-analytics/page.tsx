@@ -141,13 +141,13 @@ export default function DataAnalyticsPage() {
                 <BarChart3 className="w-4 h-4 mr-1" />
                 Data Analytics Solutions
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight px-2">
                 Turn Data Into{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-blue-600">
                   Strategic Advantage
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto px-2">
                 Unlock the power of your data with our comprehensive analytics solutions. 
                 From business intelligence to predictive analytics, we help you make data-driven decisions.
               </p>
@@ -186,10 +186,10 @@ export default function DataAnalyticsPage() {
             <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-200 transform hover:scale-105 transition-all duration-300">
               Analytics Solutions
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               Comprehensive Data Analytics Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               From descriptive to predictive analytics, our solutions help you understand 
               your data and make informed business decisions.
             </p>
@@ -243,10 +243,10 @@ export default function DataAnalyticsPage() {
             <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 transform hover:scale-105 transition-all duration-300">
               Industries We Serve
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               Data-Driven Success Across Industries
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Our analytics solutions are tailored to meet the unique challenges 
               and opportunities across various industries.
             </p>
@@ -300,10 +300,10 @@ export default function DataAnalyticsPage() {
             <Badge className="bg-purple-100 text-purple-700 hover:bg-purple-200 transform hover:scale-105 transition-all duration-300">
               Our Technology
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               Advanced Analytics Technologies
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               We leverage cutting-edge analytics technologies and platforms to deliver 
               accurate, scalable, and efficient data analysis solutions.
             </p>
@@ -356,10 +356,10 @@ export default function DataAnalyticsPage() {
             <Badge className="bg-green-100 text-green-700 hover:bg-green-200 transform hover:scale-105 transition-all duration-300">
               Our Process
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               How We Build Your Analytics Solution
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Our systematic approach ensures successful analytics implementation 
               tailored to your specific data analysis needs.
             </p>

@@ -28,13 +28,13 @@ export default function TermsPage() {
                 <FileText className="w-4 h-4 mr-1" />
                 Legal Information
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight px-2">
                 Terms of{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                   Service
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto px-2">
                 Please read these terms and conditions carefully before using our AI services and solutions.
               </p>
             </div>

@@ -389,7 +389,7 @@ export default function CareersPage() {
       />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 px-2 sm:px-4 md:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-purple-200/30 to-blue-200/30 rounded-full blur-xl animate-pulse" />
           <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-green-200/30 to-purple-200/30 rounded-full blur-lg animate-pulse" />
@@ -402,13 +402,13 @@ export default function CareersPage() {
                 <Briefcase className="w-4 h-4 mr-1" />
                 Join Our Team
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight px-2">
                 Build the Future with{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
                   AI Innovation
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto px-2">
                 Join DevTechAi.Org and be part of a team that's transforming industries 
                 through cutting-edge artificial intelligence solutions.
               </p>
@@ -418,7 +418,7 @@ export default function CareersPage() {
       </section>
 
       {/* Job Openings Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/50 relative overflow-hidden">
+      <section className="py-12 sm:py-16 px-2 sm:px-4 md:px-6 lg:px-8 bg-white/50 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-2xl animate-pulse" />
           <div className="absolute bottom-10 left-10 w-32 h-32 bg-gradient-to-br from-green-200/20 to-blue-200/20 rounded-full blur-xl animate-pulse" />
@@ -429,10 +429,10 @@ export default function CareersPage() {
             <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 transform hover:scale-105 transition-all duration-300">
               Open Positions
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 px-2">
               Current Job Openings
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Explore exciting career opportunities and find your perfect role 
               in the world of artificial intelligence.
             </p>
@@ -440,10 +440,10 @@ export default function CareersPage() {
 
           {/* Full-time Positions */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 text-center px-2">
               Full-time Positions
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 md:gap-8 px-2 sm:px-0">
               {jobOpenings.filter(job => job.type === 'Full-time').map((job) => (
                 <Card 
                   key={job.id} 
@@ -452,7 +452,7 @@ export default function CareersPage() {
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="space-y-2">
-                        <CardTitle className="text-xl text-gray-900 group-hover:text-purple-700 transition-colors duration-300">
+                        <CardTitle className="text-base sm:text-lg md:text-xl text-gray-900 group-hover:text-purple-700 transition-colors duration-300">
                           {job.title}
                         </CardTitle>
                         <div className="flex flex-wrap gap-2">
@@ -501,10 +501,10 @@ export default function CareersPage() {
 
           {/* Internship Positions */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 text-center px-2">
               Internship Opportunities
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 md:gap-8 px-2 sm:px-0">
               {jobOpenings.filter(job => job.type === 'Internship').map((job) => (
                 <Card 
                   key={job.id} 
@@ -513,7 +513,7 @@ export default function CareersPage() {
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="space-y-2">
-                        <CardTitle className="text-xl text-gray-900 group-hover:text-purple-700 transition-colors duration-300">
+                        <CardTitle className="text-base sm:text-lg md:text-xl text-gray-900 group-hover:text-purple-700 transition-colors duration-300">
                           {job.title}
                         </CardTitle>
                         <div className="flex flex-wrap gap-2">

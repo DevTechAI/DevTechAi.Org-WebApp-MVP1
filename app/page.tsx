@@ -1,15 +1,24 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import Navigation from '@/components/sections/Navigation';
 import Animated3DHeaderV2 from '@/components/sections/Animated3DHeaderV2';
-import HeroSection from '@/components/sections/HeroSection';
-import ServicesSection from '@/components/sections/ServicesSection';
-import FeaturesSection from '@/components/sections/FeaturesSection';
-import AboutSection from '@/components/sections/AboutSection';
-import TestimonialsSection from '@/components/sections/TestimonialsSection';
-import ContactSection from '@/components/sections/ContactSection';
-import Footer from '@/components/sections/Footer';
+
+// Lazy load heavy components
+const HeroSection = lazy(() => import('@/components/sections/HeroSection'));
+const ServicesSection = lazy(() => import('@/components/sections/ServicesSection'));
+const FeaturesSection = lazy(() => import('@/components/sections/FeaturesSection'));
+const AboutSection = lazy(() => import('@/components/sections/AboutSection'));
+const TestimonialsSection = lazy(() => import('@/components/sections/TestimonialsSection'));
+const ContactSection = lazy(() => import('@/components/sections/ContactSection'));
+const Footer = lazy(() => import('@/components/sections/Footer'));
+
+// Loading component
+const SectionLoader = () => (
+  <div className="flex items-center justify-center py-20">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+  </div>
+);
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
@@ -44,12 +53,30 @@ export default function Home() {
         onScrollToSection={scrollToSection} 
       />
       <Animated3DHeaderV2 />
-      <ServicesSection />
-      <FeaturesSection />
-      <AboutSection />
-      <TestimonialsSection />
-      <ContactSection />
-      <Footer />
+      
+      <Suspense fallback={<SectionLoader />}>
+        <ServicesSection />
+      </Suspense>
+      
+      <Suspense fallback={<SectionLoader />}>
+        <FeaturesSection />
+      </Suspense>
+      
+      <Suspense fallback={<SectionLoader />}>
+        <AboutSection />
+      </Suspense>
+      
+      <Suspense fallback={<SectionLoader />}>
+        <TestimonialsSection />
+      </Suspense>
+      
+      <Suspense fallback={<SectionLoader />}>
+        <ContactSection />
+      </Suspense>
+      
+      <Suspense fallback={<SectionLoader />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

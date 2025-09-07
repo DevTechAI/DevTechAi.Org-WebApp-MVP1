@@ -28,13 +28,13 @@ export default function PrivacyPage() {
                 <Shield className="w-4 h-4 mr-1" />
                 Privacy & Data Protection
               </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight px-2">
                 Privacy{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
                   Policy
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto px-2">
                 Your privacy is important to us. Learn how we collect, use, and protect your personal information.
               </p>
             </div>

@@ -2,7 +2,12 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Brain, Globe, BarChart3, Lightbulb, Zap, Shield, Bot, Database, Cpu, Target, Users, FileText, Search, Camera, TrendingUp, Settings, Code, Cloud, Lock, Server, Monitor, Smartphone, Wifi, HardDrive, Layers, RefreshCw, Globe2, ShieldCheck, BarChart, PieChart } from 'lucide-react';
+import { 
+  Brain, Globe, BarChart3, Lightbulb, Zap, Shield, Bot, Database, 
+  Cpu, Target, Users, FileText, Search, Camera, TrendingUp, Settings, 
+  Code, Cloud, Lock, Server, Monitor, Smartphone, Wifi, HardDrive, 
+  Layers, RefreshCw, Globe2, ShieldCheck, BarChart, PieChart 
+} from 'lucide-react';
 
 const services = [
   {

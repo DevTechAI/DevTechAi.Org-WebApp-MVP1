@@ -1,7 +1,34 @@
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
-import { Brain, Zap, Cpu, Database, Globe, Shield, Sparkles, Layers, Target, Rocket, Atom, CircuitBoard } from 'lucide-react';
+import { Brain, Zap, Cpu, Database, Globe, Shield } from 'lucide-react';
+
+// Mobile detection and performance utilities
+const isMobile = () => {
+  if (typeof window === 'undefined') return false;
+  return window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
+// Throttle function to limit function calls
+const throttle = (func: Function, limit: number) => {
+  let inThrottle: boolean;
+  return function(this: any, ...args: any[]) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+};
+
+// Debounce function to delay function calls
+const debounce = (func: Function, delay: number) => {
+  let timeoutId: NodeJS.Timeout;
+  return function(this: any, ...args: any[]) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+};
 
 export default function Animated3DHeaderV2() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -9,21 +36,29 @@ export default function Animated3DHeaderV2() {
   const [scrollY, setScrollY] = useState(0);
   const [typedText, setTypedText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const fullText = "Where Artificial Intelligence Meets Humanity...";
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 2 - 1,
-        y: (e.clientY / window.innerHeight) * 2 - 1,
-      });
-    };
+    // Detect mobile device
+    setIsMobileDevice(isMobile());
+    
+    // Throttled mouse move handler (only on desktop)
+    const handleMouseMove = throttle((e: MouseEvent) => {
+      if (!isMobileDevice) {
+        setMousePosition({
+          x: (e.clientX / window.innerWidth) * 2 - 1,
+          y: (e.clientY / window.innerHeight) * 2 - 1,
+        });
+      }
+    }, isMobileDevice ? 100 : 16); // Throttle more on mobile
 
-    const handleScroll = () => {
+    // Throttled scroll handler
+    const handleScroll = throttle(() => {
       setScrollY(window.scrollY);
-    };
+    }, isMobileDevice ? 50 : 16); // Throttle more on mobile
 
     const handleTimeUpdate = () => {
       setTime(Date.now() * 0.001);
@@ -34,6 +69,11 @@ export default function Animated3DHeaderV2() {
     let pauseStartTime = 0;
     let cursorBlinkStartTime = 0;
     let isCursorBlinking = false;
+    
+    // Reduce animation frequency on mobile
+    const typingSpeed = isMobileDevice ? 150 : 100;
+    const cursorSpeed = isMobileDevice ? 300 : 200;
+    const timeUpdateSpeed = isMobileDevice ? 33 : 16; // ~30fps on mobile, 60fps on desktop
     
     const typingInterval = setInterval(() => {
       setTypedText(prev => {
@@ -62,7 +102,7 @@ export default function Animated3DHeaderV2() {
         }
         return prev;
       });
-    }, 100);
+    }, typingSpeed);
 
     // Cursor blinking - 2 seconds at end, then normal blinking
     const cursorInterval = setInterval(() => {
@@ -80,22 +120,28 @@ export default function Animated3DHeaderV2() {
         }
         return !prev; // Normal blinking during typing
       });
-    }, 200); // Faster blinking: 200ms instead of 500ms
+    }, cursorSpeed);
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
-    const interval = setInterval(handleTimeUpdate, 16); // 60fps
+    // Add event listeners with throttling
+    if (!isMobileDevice) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    const interval = setInterval(handleTimeUpdate, timeUpdateSpeed);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      if (!isMobileDevice) {
+        window.removeEventListener('mousemove', handleMouseMove);
+      }
       window.removeEventListener('scroll', handleScroll);
       clearInterval(interval);
       clearInterval(typingInterval);
       clearInterval(cursorInterval);
     };
-  }, [fullText]);
+  }, [fullText, isMobileDevice]);
 
   // Enhanced floating elements with more variety
+  // Reduced floating elements for better performance
   const floatingElements = [
     { icon: Brain, delay: 0, size: 'w-16 h-16', color: 'from-purple-400 to-purple-600', speed: 0.3 },
     { icon: Zap, delay: 0.5, size: 'w-12 h-12', color: 'from-yellow-400 to-orange-500', speed: 0.4 },
@@ -103,12 +149,6 @@ export default function Animated3DHeaderV2() {
     { icon: Database, delay: 1.5, size: 'w-14 h-14', color: 'from-green-400 to-green-600', speed: 0.5 },
     { icon: Globe, delay: 2, size: 'w-15 h-15', color: 'from-cyan-400 to-cyan-600', speed: 0.3 },
     { icon: Shield, delay: 2.5, size: 'w-11 h-11', color: 'from-red-400 to-red-600', speed: 0.6 },
-    { icon: Sparkles, delay: 3, size: 'w-10 h-10', color: 'from-pink-400 to-pink-600', speed: 0.7 },
-    { icon: Layers, delay: 3.5, size: 'w-17 h-17', color: 'from-indigo-400 to-indigo-600', speed: 0.2 },
-    { icon: Target, delay: 4, size: 'w-13 h-13', color: 'from-emerald-400 to-emerald-600', speed: 0.4 },
-    { icon: Rocket, delay: 4.5, size: 'w-12 h-12', color: 'from-violet-400 to-violet-600', speed: 0.8 },
-    { icon: Atom, delay: 5, size: 'w-14 h-14', color: 'from-teal-400 to-teal-600', speed: 0.3 },
-    { icon: CircuitBoard, delay: 5.5, size: 'w-16 h-16', color: 'from-amber-400 to-amber-600', speed: 0.5 },
   ];
 
   // Enhanced particle system with different types
@@ -132,8 +172,10 @@ export default function Animated3DHeaderV2() {
               linear-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px),
               linear-gradient(90deg, rgba(99, 102, 241, 0.15) 1px, transparent 1px)
             `,
-            backgroundSize: `${40 + Math.sin(time * 0.5) * 10}px ${40 + Math.sin(time * 0.5) * 10}px`,
-            transform: `translate(${mousePosition.x * 15}px, ${mousePosition.y * 15}px) rotate(${time * 2}deg)`,
+            backgroundSize: `${40 + Math.sin(time * 0.5) * (isMobileDevice ? 5 : 10)}px ${40 + Math.sin(time * 0.5) * (isMobileDevice ? 5 : 10)}px`,
+            transform: isMobileDevice 
+              ? `translate(${mousePosition.x * 5}px, ${mousePosition.y * 5}px)` 
+              : `translate(${mousePosition.x * 15}px, ${mousePosition.y * 15}px) rotate(${time * 2}deg)`,
             transition: 'transform 0.1s ease-out',
           }}
         />
@@ -151,50 +193,52 @@ export default function Animated3DHeaderV2() {
 
       {/* Enhanced Central 3D Orb - Mobile Responsive */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div 
+        <div
           className="relative w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px]"
           style={{
-            transform: `rotateX(${mousePosition.y * 30}deg) rotateY(${mousePosition.x * 30}deg) translateZ(${scrollY * 0.1}px)`,
+            transform: isMobileDevice 
+              ? `translateZ(${scrollY * 0.05}px)` 
+              : `rotateX(${mousePosition.y * 30}deg) rotateY(${mousePosition.x * 30}deg) translateZ(${scrollY * 0.1}px)`,
             transition: 'transform 0.1s ease-out',
           }}
         >
-          {/* Multi-layered Orb */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-400 via-indigo-500 to-blue-500 opacity-90 blur-lg animate-pulse" />
-          <div className="absolute inset-6 rounded-full bg-gradient-to-br from-purple-300 via-indigo-400 to-blue-400 opacity-70 blur-md" />
-          <div className="absolute inset-12 rounded-full bg-gradient-to-br from-purple-200 via-indigo-300 to-blue-300 opacity-50 blur-sm" />
+          {/* Multi-layered Orb - Mobile Optimized */}
+          <div className={`absolute inset-0 rounded-full bg-gradient-to-br from-purple-400 via-indigo-500 to-blue-500 opacity-90 ${isMobileDevice ? 'blur-sm' : 'blur-lg'} ${isMobileDevice ? '' : 'animate-pulse'}`} />
+          <div className={`absolute inset-6 rounded-full bg-gradient-to-br from-purple-300 via-indigo-400 to-blue-400 opacity-70 ${isMobileDevice ? 'blur-sm' : 'blur-md'}`} />
+          <div className={`absolute inset-12 rounded-full bg-gradient-to-br from-purple-200 via-indigo-300 to-blue-300 opacity-50 ${isMobileDevice ? 'blur-xs' : 'blur-sm'}`} />
           <div className="absolute inset-18 rounded-full bg-gradient-to-br from-purple-100 via-indigo-200 to-blue-200 opacity-30" />
           
-          {/* Enhanced Orb Rings */}
+          {/* Enhanced Orb Rings - Mobile Optimized */}
           <div 
             className="absolute inset-0 rounded-full border-2 border-purple-300 opacity-40"
             style={{
-              transform: `rotateZ(${time * 40}deg)`,
-              animation: 'spin 15s linear infinite',
+              transform: `rotateZ(${time * (isMobileDevice ? 20 : 40)}deg)`,
+              animation: isMobileDevice ? 'none' : 'spin 15s linear infinite',
             }}
           />
           <div 
             className="absolute inset-6 rounded-full border border-indigo-300 opacity-30"
             style={{
-              transform: `rotateZ(${-time * 30}deg)`,
-              animation: 'spin 12s linear infinite reverse',
+              transform: `rotateZ(${-time * (isMobileDevice ? 15 : 30)}deg)`,
+              animation: isMobileDevice ? 'none' : 'spin 12s linear infinite reverse',
             }}
           />
           <div 
             className="absolute inset-12 rounded-full border border-blue-300 opacity-20"
             style={{
-              transform: `rotateZ(${time * 25}deg)`,
-              animation: 'spin 18s linear infinite',
+              transform: `rotateZ(${time * (isMobileDevice ? 12 : 25)}deg)`,
+              animation: isMobileDevice ? 'none' : 'spin 18s linear infinite',
             }}
           />
           
           {/* Inner Core - Mobile Responsive */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white opacity-80 animate-ping" />
+          <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white opacity-80 ${isMobileDevice ? '' : 'animate-ping'}`} />
         </div>
       </div>
 
 
       {/* Enhanced Floating Elements - Mobile Optimized */}
-      {floatingElements.map((element, index) => {
+      {!isMobileDevice && floatingElements.map((element, index) => {
         const Icon = element.icon;
         const angle = (index / floatingElements.length) * Math.PI * 2;
         const radius = 120 + Math.sin(time * element.speed + element.delay) * 30;

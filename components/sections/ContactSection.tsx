@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -63,14 +64,6 @@ const teamMembers = [
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
     profileUrl: "https://linkedin.com/in/lisa-thompson-ux",
     description: "Creating intuitive AI experiences"
-  },
-  {
-    id: 6,
-    name: "Sixth Thompson",
-    role: "UX Design Director",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
-    profileUrl: "https://linkedin.com/in/lisa-thompson-ux",
-    description: "Creating intuitive AI experiences"
   }
 ];
 
@@ -83,6 +76,7 @@ const colorClasses = {
 export default function ContactSection() {
   const [currentSlide, setCurrentSlide] = useState(2); // Start with middle profile (index 2)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>({});
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % teamMembers.length);
@@ -94,6 +88,28 @@ export default function ContactSection() {
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
+  };
+
+  const handleImageError = (memberId: number) => {
+    setImageErrors(prev => ({ ...prev, [memberId]: true }));
+  };
+
+  const getFallbackImage = (memberId: number) => {
+    // Generate a placeholder image URL with initials
+    const member = teamMembers.find(m => m.id === memberId);
+    const initials = member?.name.split(' ').map(n => n[0]).join('').toUpperCase() || 'AI';
+    return `https://ui-avatars.com/api/?name=${initials}&background=6366f1&color=fff&size=150`;
+  };
+
+  const getFallbackGradient = (memberId: number) => {
+    const gradients = [
+      'bg-gradient-to-br from-purple-400 to-purple-600',
+      'bg-gradient-to-br from-blue-400 to-blue-600', 
+      'bg-gradient-to-br from-green-400 to-green-600',
+      'bg-gradient-to-br from-orange-400 to-orange-600',
+      'bg-gradient-to-br from-pink-400 to-pink-600'
+    ];
+    return gradients[memberId % gradients.length];
   };
 
   return (
@@ -278,12 +294,22 @@ export default function ContactSection() {
                           <div className="relative mx-auto">
                             <div className={`mx-auto rounded-full overflow-hidden border-4 border-white shadow-2xl group-hover:scale-105 transition-all duration-500 ${
                               isActive ? 'w-32 h-32' : 'w-24 h-24'
-                            }`}>
-                              <img
-                                src={member.image}
-                                alt={member.name}
-                                className="w-full h-full object-cover"
-                              />
+                            } ${imageErrors[member.id] ? getFallbackGradient(member.id) : ''}`}>
+                              {imageErrors[member.id] ? (
+                                <div className="w-full h-full flex items-center justify-center text-white font-bold text-2xl">
+                                  {member.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                                </div>
+                              ) : (
+                                <Image
+                                  src={member.image}
+                                  alt={member.name}
+                                  width={isActive ? 128 : 96}
+                                  height={isActive ? 128 : 96}
+                                  className="w-full h-full object-cover"
+                                  unoptimized
+                                  onError={() => handleImageError(member.id)}
+                                />
+                              )}
                             </div>
                             {/* Hover overlay */}
                             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
